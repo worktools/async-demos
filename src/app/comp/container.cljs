@@ -20,5 +20,17 @@
    (div
     {:style (merge ui/global ui/row {:padding 16})}
     (comp-button
-     {:text "Try", :on-click (fn [e d!] (comment demos/demo-all) (demos/demo-merge))})
+     {:text "Try",
+      :on-click (fn [e d!]
+        (js/console.clear)
+        (comment demos/demo-all)
+        (comment demos/demo-alts)
+        (comment demos/demo-split)
+        (comment demos/demo-mult)
+        (comment demos/demo-merge)
+        (comment demos/demo-mix)
+        (comment demos/demo-transduce-filter)
+        (comment demos/demo-map)
+        (comment demos/demo-alt-syntax)
+        (comment demos/demo-pipeline-filter))})
     (when dev? (comp-reel (>> states :reel) reel {})))))
