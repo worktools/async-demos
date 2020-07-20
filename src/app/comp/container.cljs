@@ -6,7 +6,9 @@
             [respo.comp.space :refer [=<]]
             [reel.comp.reel :refer [comp-reel]]
             [respo-md.comp.md :refer [comp-md]]
-            [app.config :refer [dev?]]))
+            [app.config :refer [dev?]]
+            [respo-ui.comp :refer [comp-button]]
+            [app.demos :as demos]))
 
 (defcomp
  comp-container
@@ -16,19 +18,7 @@
        cursor (or (:cursor states) [])
        state (or (:data states) {:content ""})]
    (div
-    {:style (merge ui/global ui/row)}
-    (textarea
-     {:value (:content state),
-      :placeholder "Content",
-      :style (merge ui/expand ui/textarea {:height 320}),
-      :on-input (fn [e d!] (d! cursor (assoc state :content (:value e))))})
-    (=< 8 nil)
-    (div
-     {:style ui/expand}
-     (comp-md "This is some content with `code`")
-     (=< "8px" nil)
-     (button
-      {:style ui/button,
-       :inner-text "Run",
-       :on-click (fn [e d!] (println (:content state)))}))
+    {:style (merge ui/global ui/row {:padding 16})}
+    (comp-button
+     {:text "Try", :on-click (fn [e d!] (comment demos/demo-all) (demos/demo-merge))})
     (when dev? (comp-reel (>> states :reel) reel {})))))
