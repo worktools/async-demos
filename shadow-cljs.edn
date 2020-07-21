@@ -33,6 +33,9 @@
         :build-options {:manifest-name "assets.edn"}
       }
     }
+    :server {
+      :target :node-script, :output-to "target/server.js", :main app.server/main!
+    }
     :page {
       :target :node-script, :output-to "target/page.js", :main app.page/main!
       :devtools {:after-load app.page/main!}
