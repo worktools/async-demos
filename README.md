@@ -1,51 +1,25 @@
+## Async Demos
 
-Calcit Workflow
-----
-
-> Personal project template based on ClojureScript, Respo, shadow-cljs, Cirru.
+> Demos for core.async APIs.
 
 ### Usage
 
-Make sure you have Node.js and JVM installed. Then install dependencies:
-
 ```bash
 yarn
+yarn watch
 ```
 
-All build script are running in:
+Edit code in `src/app/server.cljs` to turn on functions, and run:
 
 ```bash
-yarn watch # to start watch server...
-yarn page # to generate target/index.html file
-yarn ln # link CSS files to target/ folder
-yarn build # to build release bundles, with local assets links
+node target/server.js
 ```
 
-Edit `config.cljs` to change the settings as you want(by default it sends assets to my server). To release:
-
-```bash
-yarn build-cdn # to build release bundles, with assets link to CDN
-yarn upload # to upload assets to my server
-```
-
-Edit Clojure with [calcit-editor](https://github.com/Cirru/calcit-editor):
-
-```bash
-npm i -g calcit-editor
-calcit-editor # watching server...
-
-op=compile calcit-editor # if you need to generate code at once
-```
-
-Package jar file and send to Clojars with [Meyvn](https://github.com/danielsz/meyvn):
-
-```bash
-myven deploy
-```
+Source code is in [`src/app/demos.cljs`](src/app/demos.cljs).
 
 ### Workflow
 
-Workflow https://github.com/mvc-works/calcit-workflow
+Workflow https://github.com/mvc-works/calcit-nodejs-workflow
 
 ### License
 
